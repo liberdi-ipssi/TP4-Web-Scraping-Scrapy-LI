@@ -1,13 +1,7 @@
-import sys
-sys.path.insert(0, 'C:/Users/lahou/Documents/IPSSI/WebScraping/')
-
-from utiles import DataBase
-import sqlalchemy as db
 import scrapy
 from scrapy import Request
 from WebCrawler.items import ReviewsAllocineItem
 from WebCrawler.pipelines import WebcrawlerPipeline
-
 
 class AllocineSpider(scrapy.Spider):
     pipeline = WebcrawlerPipeline()
@@ -33,7 +27,7 @@ class AllocineSpider(scrapy.Spider):
 
             # Nom du film
             try:
-                item['title'] = film.css('a.meta-title-link::text').extract()
+                item['title'] = film.css('a.meta-title-link::text').get()
             except:
                 item['title'] = 'None'
               
@@ -46,7 +40,7 @@ class AllocineSpider(scrapy.Spider):
 
             # Auteur du film
             try:
-                item['author'] = film.css('a.blue-link::text').extract()
+                item['author'] = film.css('a.blue-link::text').get()
             except:
                 item['author'] = 'None'
            

@@ -22,3 +22,14 @@ class ReviewsAllocineItem(scrapy.Item):
     desc = scrapy.Field()
     release = scrapy.Field()
     pass
+
+#À ajouter au fichier items.py
+class ReviewsBoursoramaItem(scrapy.Item):
+    indice = scrapy.Field()
+    cours = scrapy.Field()
+    var = scrapy.Field()
+    hight = scrapy.Field()
+    low = scrapy.Field()
+    open_ = scrapy.Field()
+    time = scrapy.Field()
+    pass
